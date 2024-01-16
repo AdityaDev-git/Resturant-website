@@ -1,12 +1,11 @@
 import React from 'react'
 import "./../styles/HomeStyles.css";
-import Layout from '../components/Layout'
 import { Link } from 'react-router-dom'
 import Banner from "../img/banner.jpeg"
 
 function Home() {
   return (
-    <Layout>
+    <>
       <div className='home' style={{backgroundImage:`url(${Banner})`}}>
         <div className='headerContainer'>
           <h1>Mizu Resturant</h1>
@@ -17,7 +16,7 @@ function Home() {
           </Link>
         </div>
       </div>
-    </Layout>
+    </>
 )
 }
 

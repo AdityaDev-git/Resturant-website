@@ -3,14 +3,23 @@ import "./../styles/HeaderStyles.css";
 import { AppBar, Box, Divider, Drawer, IconButton, Toolbar, Typography } from '@mui/material'
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Link,NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import { signOut } from "firebase/auth";
+import { auth } from "../firebaseconfig";
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const Header= () => {
     const [mobileOpen, setMobileOpen] = useState(false);
+    
     //handle menu click
     const handleDrawerToggle =()=>{
         setMobileOpen(!mobileOpen);
     }
+    // user logout
+     const logout = async () => {
+    await signOut(auth);
+  };
+
     //menu drawer
     const drawer = (
         <Box onClick={handleDrawerToggle} sx={{textAlign:"center"}} >
@@ -21,16 +30,19 @@ const Header= () => {
             <Divider/>
                 <ul className='mobile-navigation'>
                     <li>
-                        <NavLink to={'/'}>Home</NavLink>
+                        <NavLink to='/home'>Home</NavLink>
                     </li>
                     <li>
-                        <NavLink to={'/menu'}>Menu</NavLink>
+                        <NavLink to='/menu'>Menu</NavLink>
                     </li>
                     <li>
-                        <NavLink to={'/about'}>About</NavLink>
+                        <NavLink to='/about'>About</NavLink>
                     </li>
                     <li>
-                        <NavLink to={'/contact'}>Contact</NavLink>
+                        <NavLink to='/contact'>Contact</NavLink>
+                    </li>
+                    <li>
+                        <button onClick={logout} style={{"background-color":"black","cursor":"pointer"}}><LogoutIcon sx={{color:"white",bgcolor:"black" }}/></button>
                     </li>
                 </ul>
         </Box>
@@ -52,16 +64,19 @@ const Header= () => {
             <Box sx={{display:{xs:"none", sm:"block"}}}>
                 <ul className='navigation-menu'>
                     <li>
-                        <Link to={'/'}>Home</Link>
+                        <NavLink to='/'>Home</NavLink>
                     </li>
                     <li>
-                        <Link to={'/menu'}>Menu</Link>
+                        <NavLink to='/menu'>Menu</NavLink>
                     </li>
                     <li>
-                        <Link to={'/about'}>About</Link>
+                        <NavLink to='/about'>About</NavLink>
                     </li>
                     <li>
-                        <Link to={'/contact'}>Contact</Link>
+                        <NavLink to='/contact'>Contact</NavLink>
+                    </li>
+                    <li>
+                        <button onClick={logout} style={{"background-color":"black","cursor":"pointer"}}><LogoutIcon sx={{color:"white",bgcolor:"black" }}/></button>
                     </li>
                 </ul>
             </Box>

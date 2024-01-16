@@ -1,10 +1,9 @@
 import React from 'react'
-import Layout from '../components/Layout'
 import { Box, Typography } from '@mui/material'
 
 function About() {
   return (
-    <Layout>
+    <>
       <Box sx={{my:15, textAlign:"center", p:4,
       "& h4":{fontWeight:"bold", my:2,fontSize:"2rem"},
       "& p":{textAlign:"justify"},
@@ -15,7 +14,7 @@ function About() {
         <br />
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat possimus cupiditate a omnis earum explicabo veritatis doloremque quae nesciunt ducimus veniam voluptatum consectetur laudantium illum, itaque quibusdam, soluta eos porro. Est, earum? Praesentium corrupti nihil voluptatibus eaque iste dignissimos inventore alias necessitatibus facilis nulla molestiae, quod natus nisi et ipsum. Officiis maiores quisquam harum aspernatur tenetur, nam autem vel iusto fugit alias illum repudiandae dicta suscipit consequatur, saepe dolores ipsam unde explicabo totam doloribus. Obcaecati dignissimos odio quos eligendi, ipsam eius tempore possimus praesentium! Deleniti necessitatibus id accusamus officiis, illum excepturi, repellendus vitae incidunt quasi velit, eligendi voluptatem est exercitationem?</p>
       </Box>
-    </Layout>
+    </>
 )
 }
 
